@@ -115,6 +115,21 @@ public class AManufacturingGUI extends JFrame{
             }
         });
 
+        menuItemImport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showOpenDialog(AManufacturingGUI.this);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    JOptionPane.showMessageDialog(AManufacturingGUI.this,
+                            "La funcionalidad 'Importar' esta en construcción.\nArchivo seleccionado: " + selectedFile.getName(),
+                            "Abrir archivo", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+
         menuItemSave.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -125,6 +140,21 @@ public class AManufacturingGUI extends JFrame{
                     File selectedFile = fileChooser.getSelectedFile();
                     JOptionPane.showMessageDialog(AManufacturingGUI.this,
                             "La funcionalidad 'Guardar' esta en construcción.\nArchivo seleccionado: " + selectedFile.getName(),
+                            "Guardar archivo", JOptionPane.INFORMATION_MESSAGE);
+                }
+            }
+        });
+
+        menuItemExport.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JFileChooser fileChooser = new JFileChooser();
+                int result = fileChooser.showSaveDialog(AManufacturingGUI.this);
+
+                if (result == JFileChooser.APPROVE_OPTION) {
+                    File selectedFile = fileChooser.getSelectedFile();
+                    JOptionPane.showMessageDialog(AManufacturingGUI.this,
+                            "La funcionalidad 'Exportar' esta en construcción.\nArchivo seleccionado: " + selectedFile.getName(),
                             "Guardar archivo", JOptionPane.INFORMATION_MESSAGE);
                 }
             }
